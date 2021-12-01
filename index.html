@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Health Insurance Risk Calculator</title>
+</head>
+ 
+<body style = 'background-color: #CDFEFF'>
+    <h1 style = 'font-size: 200%'>Health Insurance Risk Calculator</h1>
+    <pre style = 'font-size: 160%'>
+-Risk Calculator by Sean Coffey                                             
+- Please answer the questions about the customer's health
+        
+      </pre>
+
+    <label>Customer's Body Mass Index (BMI)</label></br>
+    <select id="q1">
+        <option value="0">Normal (18.5-24.9)</option>
+        <option value="35">Overweight (25.0-29.9)</option>
+        <option value="75">else</option>
+    
+    </select></body></br></br>
+    <label>Customer's Blood Pressure</label></body></br>
+    <select id="q2">
+        <option value="0">Normal (Less than 120 upper number and less than 80 lower number)</option>
+        <option value="15">Elevated (120-129 upper and Less than 80 lower)</option>
+        <option value="30">Stage 1 (130-139 upper and 80-89 lower)</option>
+        <option value="75">Stage 2 (140+ upper and 90+ lower)</option>
+        <option value="100">Crisis (180+ upper or 120+ lower)</option>
+    </select>
+</br></br>
+<label>Customer's Age</label></body></br>
+<select id="q3">
+    <option value="0">less than 30 </option>
+    <option value="10">between 30 and 45</option>
+    <option value="20">between 45 and 60</option>
+    <option value="30">older than 60</option>
+    
+</select>
+</br></br>
+<label>Is there a history of diabetes in the family?</label></body></br>
+<select id="q4">
+    <option value="0">no</option>
+    <option value="10">yes</option>
+
+
+</select>
+</br></br>
+
+<label>Is there a  history of cancer in the family?</label></body></br>
+<select id="q5">
+    <option value="0">no</option>
+    <option value="10">yes</option>
+
+</select>
+</br></br>
+
+<label>Is there a history of Alzheimer's in the family?</label></body></br>
+<select id="q6">
+    <option value="0">no</option>
+    <option value="10">yes</option>
+
+</select>
+</br></br>
+
+</br>
+
+    <button onclick="calculateRisk()">Calculate Risk</button>
+    <p id="Risk"></p>
+    
+    <p id="risk"></p>
+
+<script>
+console.log("Starting Risk Checker ...");
+
+function calculateRisk() {
+    console.log("caclulateRisk()")
+   
+
+
+
+
+    let question1Response = document.getElementById('q1').selectedOptions[0].value;
+    let question2Response = document.getElementById('q2').selectedOptions[0].value;
+    let question3Response = document.getElementById('q3').selectedOptions[0].value;
+    let question4Response = document.getElementById('q4').selectedOptions[0].value;
+    let question5Response = document.getElementById('q5').selectedOptions[0].value;
+    let question6Response = document.getElementById('q6').selectedOptions[0].value;
+    
+
+console.log("Question 1 Answer:")
+console.log(document.getElementById('q1').selectedOptions[0].text);
+console.log(document.getElementById('q1').selectedOptions[0].value);
+console.log(question1Response)
+
+console.log("Question 2 Answer:")
+console.log(document.getElementById('q2').selectedOptions[0].text);
+console.log(document.getElementById('q2').selectedOptions[0].value);
+console.log(question2Response)
+
+console.log("Question 3 Answer:")
+console.log(document.getElementById('q3').selectedOptions[0].text);
+console.log(document.getElementById('q3').selectedOptions[0].value);
+console.log(question1Response)
+
+console.log("Question 4 Answer:")
+console.log(document.getElementById('q4').selectedOptions[0].text);
+console.log(document.getElementById('q4').selectedOptions[0].value);
+console.log(question1Response)
+
+console.log("Question 5 Answer:")
+console.log(document.getElementById('q5').selectedOptions[0].text);
+console.log(document.getElementById('q5').selectedOptions[0].value);
+console.log(question1Response)
+
+console.log("Question 6 Answer:")
+console.log(document.getElementById('q6').selectedOptions[0].text);
+console.log(document.getElementById('q6').selectedOptions[0].value);
+console.log(question1Response)
+
+
+
+let question1Risk = 0 + Math.abs(question1Response);
+let question2Risk = 0 + Math.abs(question2Response);
+let question3Risk = 0 + Math.abs(question3Response);
+let question4Risk = 0 + Math.abs(question4Response);
+let question5Risk = 0 + Math.abs(question5Response);
+let question6Risk = 0 + Math.abs(question6Response);
+
+
+console.log("c1="+question1Risk);
+console.log("c2="+question2Risk);
+console.log("c3="+question3Risk);
+console.log("c4="+question4Risk);
+console.log("c5="+question5Risk);
+console.log("c6="+question6Risk);
+
+let totalRisk = question1Risk + question2Risk + question3Risk + question4Risk + question5Risk + question6Risk;
+
+
+totalRisk = Math.round(totalRisk);
+console.log("tc="+totalRisk);
+
+
+
+document.getElementById("Risk").innerHTML = "Customer's Risk: "+totalRisk;
+}
+
+</script>
+
+
+</body>
+
+
+</html>
